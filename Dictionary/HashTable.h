@@ -1,0 +1,202 @@
+// ------------------------------------------------------------------------------------
+//
+// Hash Table For Dictionary
+//
+// ------------------------------------------------------------------------------------
+
+#pragma once
+#include <iostream>
+#include <string>
+#include <math.h>
+#include <sstream>
+#include "Trie.h"
+
+#define DICTIONARY_HASHTABLE_SIZE 5021
+
+using namespace std;
+
+class HashNode
+{
+public:
+    string word;
+    string def;
+    HashNode *next;
+
+    HashNode()
+    {
+        word = "";
+        def = "";
+        next = nullptr;
+    }
+
+    HashNode(string word, string def)
+    {
+        this->word = word;
+        this->def = def;
+        next = nullptr;
+    }
+};
+// implement the above functions here....
+
+class HashTable
+{
+private:
+    HashNode *dictTable[DICTIONARY_HASHTABLE_SIZE]; // array of HashNode pointers
+    unsigned int words_entered;                     // number of words entered
+public:
+    // defaut constructor
+    HashTable();
+
+    // insert a word
+    void insert(string word, string def);
+
+    // returns the definition if found word in the dict
+    string getDefinition(string word);
+
+    // hash function
+    int hashFunction(string word);
+
+    // load words from .txt file
+    void loadWordsFromFile();
+
+    // function for DEBUG
+    void display();
+};
+// implement the above functions here....
+
+HashTable::HashTable()
+{
+    words_entered = 0;
+
+    // initialize dictionary array with empty hash node
+    HashNode *temp = new HashNode;
+
+    for (int i = 0; i < DICTIONARY_HASHTABLE_SIZE; i++)
+    {
+        dictTable[i] = temp;
+    }
+}
+
+// polynomial rolling hash
+// learn about here https://www.geeksforgeeks.org/string-hashing-using-polynomial-rolling-hash-function/
+int HashTable::hashFunction(string word)
+{
+    int g = 31;
+    unsigned int sum = 0;
+    for (int i = 0; i < word.size(); i++)
+    {
+        sum = (sum * g + (int)word[i]) % DICTIONARY_HASHTABLE_SIZE;
+    }
+    return sum;
+}
+
+void HashTable::insert(string word, string def)
+{
+    int index = hashFunction(word);
+
+    HashNode *temp = new HashNode(word, def);
+
+    // if there's already a word at the hash table, traverse linked list of nodes
+    if (dictTable[index]->word != "")
+    {
+        HashNode *travNode = new HashNode;
+        travNode = dictTable[index];
+
+        // traverse linked list at hash index till the end
+        while (travNode->next != nullptr)
+        {
+            travNode = travNode->next;
+        }
+        travNode->next = temp;
+    }
+    else
+        dictTable[index] = temp;
+    words_entered++;
+}
+
+string HashTable::getDefinition(string word)
+{
+    int index = hashFunction(word);
+
+    // if word is found at hash index
+    if (dictTable[index]->word == word)
+    {
+        return dictTable[index]->def;
+    }
+    // if word is not found at hash index, traverse linked list
+    else
+    {
+        HashNode *cur = new HashNode;
+        cur = dictTable[index];
+
+        while (cur->next != nullptr)
+        {
+            cur = cur->next;
+            if (cur->word == word)
+            {
+                return cur->def;
+            }
+        }
+    }
+    return "Word doesn't exist!";
+}
+
+void HashTable::loadWordsFromFile()
+{
+    ifstream textFile;
+
+    textFile.open("EnglishDictionary.txt");
+
+    if (!textFile)
+    {
+        cout << "Couldn't open file!" << endl;
+        return;
+    }
+
+    int i = 0;
+    string line;
+    while (getline(textFile, line) && i < DICTIONARY_HASHTABLE_SIZE)
+    {
+        string word, def, type;
+
+        if (line != "")
+        {
+            auto it = line.begin();
+            while (it != line.end() && *it != ' ')
+            {
+                word.push_back(*it);
+                it++;
+            }
+            while (it != line.end())
+            {
+                def.push_back(*it);
+                it++;
+            }
+            // insert word and definition into dictionary
+            this->insert(word, def);
+            i++;
+        }
+    }
+
+    textFile.close();
+}
+
+void HashTable::display()
+{
+    for (int i = 0; i < DICTIONARY_HASHTABLE_SIZE; i++)
+    {
+        HashNode *cur = new HashNode;
+        cur = dictTable[i];
+        do
+        {
+            cout << i << ": " << cur->word;
+            if (cur->word != "")
+                cout << " [" << cur->def << "]";
+            cur = cur->next;
+            if (cur != nullptr)
+                cout << " -->";
+        } while (cur != nullptr);
+        cout << endl;
+    }
+    cout << "Words: " << words_entered << endl;
+}

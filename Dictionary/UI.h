@@ -57,7 +57,7 @@ using namespace std;
 
 class UI
 {
-private:
+public:
     // tùy chọn người dùng
     int selection;
 
@@ -83,7 +83,7 @@ private:
 
     Trie autoCompleteTrieObj;
 
-public:
+    // public:
     // constructor
     UI();
 
@@ -112,8 +112,8 @@ UI::UI()
     // lấy handle của console để làm việc với đầu ra
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    dhtObj.loadWordsFromFile();
-    autoCompleteTrieObj.import_txt();
+    dhtObj.loadWordsFromBinaryFile();
+    autoCompleteTrieObj.import_bin();
 }
 
 void UI::setTextColour(int color)
@@ -230,7 +230,7 @@ void UI::process()
                 else if (str_input != "" && key_input == KEY_BACKSPACE)
                     str_input.pop_back();
 
-                // 13 is Enter 
+                // 13 is Enter
                 // add character to string input
                 else if (key_input != NULL && key_input != 13 && key_input != KEY_BACKSPACE && validEntry())
                     str_input.push_back(key_input);
@@ -248,10 +248,10 @@ void UI::process()
                      << endl
                      << " " << str_input << " ";
                 setTextColour(COLOUR_WHITE);
-
-                // get definition
-                // cout << " Definition: " << dhtObj.getDefinition(str_input) << endl
-                //      << endl;
+                for (char &c : str_input)
+                {
+                    c = tolower(c);
+                }
                 string res = dhtObj.getDefinition(str_input);
                 if (res != "Word doesn't exist!")
                 {

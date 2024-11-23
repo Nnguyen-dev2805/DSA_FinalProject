@@ -23,21 +23,82 @@ class BookMarkList
 private:
     Node *head;
 
+    bool contains(string word);
+
 public:
     BookMarkList();
+
+    void loadFromFile();
 
     void insert(string word);
 
     void display();
 };
 // implement the above functions here....
+
+bool BookMarkList::contains(string word)
+{
+    Node *current = head;
+    while (current != nullptr)
+    {
+        if (current->data == word)
+        {
+            return true;
+        }
+        current = current->next;
+    }
+    return false;
+}
+
 BookMarkList::BookMarkList()
 {
     head = nullptr;
+    loadFromFile();
+}
+
+void BookMarkList::loadFromFile()
+{
+    ifstream inFile("Bookmark.txt");
+    if (!inFile)
+    {
+        cout << "Couldn't open file for reading!" << endl;
+        return;
+    }
+
+    string word;
+    while (getline(inFile, word))
+    {
+        if (!word.empty())
+        {
+            Node *newNode = new Node;
+            newNode->data = word;
+            newNode->next = nullptr;
+
+            if (!head)
+            {
+                head = newNode;
+            }
+            else
+            {
+                Node *cur = head;
+                while (cur->next)
+                {
+                    cur = cur->next;
+                }
+                cur->next = newNode;
+            }
+        }
+    }
+
+    inFile.close();
 }
 
 void BookMarkList::insert(string word)
 {
+    if (contains(word))
+    {
+        return;
+    }
     Node *newNode = new Node;
     newNode->data = word;
     newNode->next = nullptr;

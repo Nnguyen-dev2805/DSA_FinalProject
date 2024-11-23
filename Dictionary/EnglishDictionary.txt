@@ -1115,7 +1115,7 @@ dastard (n) - Một kẻ hèn nhát.
 datum (n) - Một tiền đề, điểm khởi đầu, hoặc sự thật đã cho.
 dauntless (adj) - Không sợ hãi.
 day-man (n) - Người lao động theo ngày.
-dead-heat (n) - Một cuộc đua mà hai hoặc nhiều đối thủ về nhất, không có người chiến thắng.
+deadheat (n) - Một cuộc đua mà hai hoặc nhiều đối thủ về nhất, không có người chiến thắng.
 dearth (n) - Sự khan hiếm, như của một cái gì đó thông thường, thiết yếu, hoặc mong muốn.
 death's-head (n) - Một cái sọ người như một biểu tượng của cái chết.
 debase (v) - Hạ thấp về phẩm chất hoặc đức hạnh.
@@ -1975,7 +1975,7 @@ furtherance (n) - sự thúc đẩy.
 furtive (adj) - lén lút.
 fuse (v) - kết hợp.
 fusible (adj) - có thể nóng chảy.
-futile (adj - vô ích.
+futile (adj) - vô ích.
 futurist (n) - người có tư tưởng tiến bộ.
 gauge (n) - dụng cụ đo lường.
 gaiety (n) - sự vui vẻ.
@@ -2068,7 +2068,7 @@ grimace (n) - biểu cảm đau đớn.
 grindstone (n) - đá mài.
 grisly (adj) - ghê rợn.
 grotesque (adj) - kỳ quái.
-grotto (n . - hang động nhỏ.
+grotto (n)  - hang động nhỏ.
 ground (n) - mặt đất.
 guess (n) - đoán.
 guile (n) - sự xảo quyệt.
@@ -4976,7 +4976,7 @@ waive (v) - Từ bỏ, đặc biệt là tạm thời, như một quyền lợi 
 wampum (n) - Những viên hạt được xâu trên dây, trước đây được sử dụng giữa người Mỹ bản địa như tiền tệ.  
 wane (v) - Giảm kích thước và độ sáng.  
 wantonness (n) - Sự liều lĩnh.  
-warlike (adj - Hiếu chiến.  
+warlike (adj) - Hiếu chiến.  
 wavelet (n) - Một gợn sóng nhỏ.  
 weak-kneed (adj) - Thiếu quyết tâm hoặc năng lượng.  
 weal (n) - Sự thịnh vượng.  

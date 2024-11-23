@@ -59,6 +59,9 @@ public:
     // load words from .txt file
     void loadWordsFromFile();
 
+    // load words from binary file
+    void loadWordsFromBinaryFile();
+
     // function for DEBUG
     void display();
 };
@@ -68,12 +71,9 @@ HashTable::HashTable()
 {
     words_entered = 0;
 
-    // initialize dictionary array with empty hash node
-    HashNode *temp = new HashNode;
-
     for (int i = 0; i < DICTIONARY_HASHTABLE_SIZE; i++)
     {
-        dictTable[i] = temp;
+        dictTable[i] = nullptr;
     }
 }
 
@@ -97,7 +97,7 @@ void HashTable::insert(string word, string def)
     HashNode *temp = new HashNode(word, def);
 
     // if there's already a word at the hash table, traverse linked list of nodes
-    if (dictTable[index]->word != "")
+    if (dictTable[index] != nullptr)
     {
         HashNode *travNode = new HashNode;
         travNode = dictTable[index];
@@ -157,7 +157,7 @@ void HashTable::loadWordsFromFile()
     string line;
     while (getline(textFile, line) && i < DICTIONARY_HASHTABLE_SIZE)
     {
-        string word, def, type;
+        string word, def;
 
         if (line != "")
         {
@@ -179,6 +179,34 @@ void HashTable::loadWordsFromFile()
     }
 
     textFile.close();
+}
+
+void HashTable::loadWordsFromBinaryFile()
+{
+    ifstream binaryFile;
+    binaryFile.open("EnglishDictionary.dat", ios::binary);
+    if (!binaryFile)
+    {
+        cout << "Couldn't open file!" << endl;
+        return;
+    }
+    int i = 0;
+    while (binaryFile.peek() != EOF && i < DICTIONARY_HASHTABLE_SIZE)
+    {
+        auto readString = [](ifstream &binaryFile) -> string
+        {
+            size_t len;
+            binaryFile.read(reinterpret_cast<char *>(&len), sizeof(len));
+            string str(len, ' ');
+            binaryFile.read(&str[0], len);
+            return str;
+        };
+        string word = readString(binaryFile);
+        string def = readString(binaryFile);
+        this->insert(word, def);
+        i++;
+    }
+    binaryFile.close();
 }
 
 void HashTable::display()

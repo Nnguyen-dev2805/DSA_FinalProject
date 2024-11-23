@@ -26,6 +26,9 @@ public:
     // function for importing dictionary file
     void import_txt();
 
+    // function for importing binary file
+    void import_bin();
+
     // insert data into trie
     void insert(string term);
 
@@ -86,6 +89,33 @@ void Trie::import_txt()
     get_file.close();
 }
 
+void Trie::import_bin()
+{
+    ifstream bin_file;
+    bin_file.open("EnglishDictionary.dat", ios::binary);
+    if (!bin_file)
+    {
+        cout << "Couldn't open binary file!" << endl;
+        return;
+    }
+
+    string word;
+    int count = 0;
+
+    while (bin_file.peek() != EOF)
+    {
+        size_t len;
+        bin_file.read(reinterpret_cast<char *>(&len), sizeof(len));
+
+        word.resize(len);
+        bin_file.read(&word[0], len);
+
+        insert(word);
+        count++;
+    }
+    bin_file.close();
+}
+
 void Trie::insert(string term)
 {
     TrieNode *cur = root;
@@ -143,9 +173,14 @@ bool Trie::get_prefix(string prefix)
 {
     TrieNode *cur = root;
     int len = prefix.size();
+    string new_prefix = "";
     for (int i = 0; i < len; i++)
     {
-        int j = prefix[i] - 'a';
+        char c = tolower(prefix[i]);
+        new_prefix += c;
+        int j = c - 'a';
+
+        // int j = prefix[i] - 'a';
         if (cur->children[j])
         {
             cur = cur->children[j];
@@ -175,7 +210,7 @@ bool Trie::get_prefix(string prefix)
     if (!flag)
         cout << "Do you mean..." << endl
              << endl;
-    dfs(cur, prefix);
+    dfs(cur, new_prefix);
     return true;
 }
 

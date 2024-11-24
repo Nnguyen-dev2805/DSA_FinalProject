@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\STUDY\\NAM2\\CTDL_DSA\\final_project\\bfs\\minhhoabfs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{16746D56-F681-4B02-A49A-D90B49BE7F05}|minhhoabfs.csproj|D:\\STUDY\\NAM2\\CTDL_DSA\\final_project\\bfs\\minhhoabfs\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{16746D56-F681-4B02-A49A-D90B49BE7F05}|minhhoabfs.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{16746D56-F681-4B02-A49A-D90B49BE7F05}|minhhoabfs.csproj|D:\\STUDY\\NAM2\\CTDL_DSA\\final_project\\bfs\\minhhoabfs\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16746D56-F681-4B02-A49A-D90B49BE7F05}|minhhoabfs.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16746D56-F681-4B02-A49A-D90B49BE7F05}|minhhoabfs.csproj|d:\\study\\nam2\\ctdl_dsa\\final_project\\bfs\\minhhoabfs\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16746D56-F681-4B02-A49A-D90B49BE7F05}|minhhoabfs.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{16746D56-F681-4B02-A49A-D90B49BE7F05}|minhhoabfs.csproj|d:\\study\\nam2\\ctdl_dsa\\final_project\\bfs\\minhhoabfs\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{16746D56-F681-4B02-A49A-D90B49BE7F05}|minhhoabfs.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{16746D56-F681-4B02-A49A-D90B49BE7F05}|minhhoabfs.csproj|D:\\STUDY\\NAM2\\CTDL_DSA\\final_project\\bfs\\minhhoabfs\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\STUDY\\NAM2\\CTDL_DSA\\final_project\\bfs\\minhhoabfs\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\STUDY\\NAM2\\CTDL_DSA\\final_project\\bfs\\minhhoabfs\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAAO4AAAAAAAAAAAAqwAQBAABCAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAcwP4AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T01:21:01.211Z",
               "IsPinned": true,
@@ -46,14 +46,13 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\STUDY\\NAM2\\CTDL_DSA\\final_project\\bfs\\minhhoabfs\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA5AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T09:11:25.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T09:11:25.345Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\STUDY\\NAM2\\CTDL_DSA\\final_project\\bfs\\minhhoabfs\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",

@@ -148,7 +148,7 @@
             // 
             this.rtbResult.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtbResult.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rtbResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.rtbResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.rtbResult.Location = new System.Drawing.Point(672, 162);
             this.rtbResult.Name = "rtbResult";
             this.rtbResult.ReadOnly = true;
@@ -331,7 +331,8 @@
             this.txtoutput.Name = "txtoutput";
             this.txtoutput.ReadOnly = true;
             this.txtoutput.Size = new System.Drawing.Size(191, 45);
-            this.txtoutput.TabIndex = 7;
+            this.txtoutput.TabIndex = 1;
+            this.txtoutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button4
             // 
@@ -340,7 +341,7 @@
             this.button4.Location = new System.Drawing.Point(251, 481);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(174, 73);
-            this.button4.TabIndex = 6;
+            this.button4.TabIndex = 5;
             this.button4.Text = "Lấy hết phần tử ";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -352,7 +353,7 @@
             this.checkEmpty.Location = new System.Drawing.Point(24, 475);
             this.checkEmpty.Name = "checkEmpty";
             this.checkEmpty.Size = new System.Drawing.Size(174, 73);
-            this.checkEmpty.TabIndex = 5;
+            this.checkEmpty.TabIndex = 4;
             this.checkEmpty.Text = "Kiểm tra rỗng";
             this.checkEmpty.UseVisualStyleBackColor = false;
             this.checkEmpty.Click += new System.EventHandler(this.button3_Click);
@@ -364,7 +365,7 @@
             this.pop.Location = new System.Drawing.Point(251, 373);
             this.pop.Name = "pop";
             this.pop.Size = new System.Drawing.Size(174, 73);
-            this.pop.TabIndex = 4;
+            this.pop.TabIndex = 3;
             this.pop.Text = "Lấy phần tử";
             this.pop.UseVisualStyleBackColor = false;
             this.pop.Click += new System.EventHandler(this.button2_Click);
@@ -376,7 +377,7 @@
             this.btnAdd.Location = new System.Drawing.Point(24, 373);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(174, 73);
-            this.btnAdd.TabIndex = 3;
+            this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Thêm phần tử";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.button1_Click_1);
@@ -398,7 +399,7 @@
             this.txtinput.Location = new System.Drawing.Point(181, 150);
             this.txtinput.Name = "txtinput";
             this.txtinput.Size = new System.Drawing.Size(191, 45);
-            this.txtinput.TabIndex = 1;
+            this.txtinput.TabIndex = 0;
             this.txtinput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lstQueue

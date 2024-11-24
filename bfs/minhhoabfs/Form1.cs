@@ -256,6 +256,9 @@ namespace BFS_Graph_App
             lstEdges.Items.Clear();
             rtbResult.Clear();
             txtStartVertex.Clear();
+            graph.Clear();
+            myqueue.Clear();
+            MessageBox.Show("Dữ liệu đã được xóa.", "Thông báo ");
 
         }
 

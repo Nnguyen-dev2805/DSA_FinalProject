@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
             this.cleardata = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtinput = new System.Windows.Forms.TextBox();
             this.lstQueue = new System.Windows.Forms.ListBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -148,7 +148,7 @@
             // 
             this.rtbResult.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rtbResult.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rtbResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.rtbResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.rtbResult.Location = new System.Drawing.Point(672, 162);
             this.rtbResult.Name = "rtbResult";
             this.rtbResult.ReadOnly = true;
@@ -236,6 +236,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "BFS";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label9.Location = new System.Drawing.Point(270, 3);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(319, 61);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Minh họa BFS";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cleardata
             // 
@@ -403,16 +413,6 @@
             this.lstQueue.Size = new System.Drawing.Size(176, 500);
             this.lstQueue.TabIndex = 0;
             this.lstQueue.SelectedIndexChanged += new System.EventHandler(this.lstQueue_SelectedIndexChanged);
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(334, 3);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(206, 61);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Minh họa BFS";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 

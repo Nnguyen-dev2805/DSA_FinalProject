@@ -99,7 +99,6 @@ int main()
 	do
 	{
 		int n, m;
-		//		cout << "Enter the number of vertices(nhap so dinh cua do thi): "; cin >> n;
 		cout << "Enter the number of edges(nhap so canh cua do thi): ";
 		cin >> m;
 		if (m <= 0)

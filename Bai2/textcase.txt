@@ -1,0 +1,4 @@
+1 Nguyen Vietcombank 1000
+3 Tai BIDV 2000
+2 Ha Techcombank 1500
+0 Huy MB 3000

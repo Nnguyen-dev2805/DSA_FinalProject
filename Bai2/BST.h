@@ -21,10 +21,15 @@ private:
             this->pLeft = nullptr;
             this->pRight = nullptr;
         }
+        // destructor
+        ~Node()
+        {
+            delete pLeft;
+            delete pRight;
+        }
     };
 
     Node *root;
-
     // helper function to insert
     void addNode(Node *&node, Node *newNode)
     {
@@ -36,10 +41,11 @@ private:
         {
             addNode(node->pRight, newNode);
         }
-        else
+        else if(node->data > newNode->data)
         {
             addNode(node->pLeft, newNode);
         }
+        else return;
     }
 
     // helper function to delete
@@ -116,6 +122,17 @@ private:
         printInOrder(node->pLeft);
         node->data.display();
         printInOrder(node->pRight);
+    }
+    void FileInOrder(Node *node, ofstream &outfile)
+    {
+        if (node == nullptr)
+            return;
+        FileInOrder(node->pLeft, outfile);
+        outfile << node->data.accountID << endl;
+        outfile << node->data.accountHolderName << endl;
+        outfile << node->data.bankName << endl;
+        outfile << node->data.balance << endl;
+        FileInOrder(node->pRight, outfile );
     }
 
 public:
@@ -222,7 +239,7 @@ public:
         }
         // Trường hợp có 0 con và 1 con
         Node *child = (cur->pLeft != nullptr) ? cur->pLeft : cur->pRight;
-        if (cur = root)
+        if (cur == root)
         {
             root = child;
         }
@@ -256,5 +273,16 @@ public:
             return;
         }
         printInOrder(root);
+    }
+
+    // ghi ra file
+    void printFile(ofstream &outfile)
+    {
+        if (root == nullptr)
+        {
+            cout << "Cay rong." << endl;
+            return;
+        }
+        FileInOrder(root, outfile);
     }
 };

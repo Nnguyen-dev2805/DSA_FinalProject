@@ -49,7 +49,7 @@ public:
 
     bool operator<=(BankAccount &other) const
     {
-        return this->accountID >= other.accountID;
+        return this->accountID <= other.accountID;
     }
 
     bool operator!=(BankAccount &other) const
@@ -97,4 +97,11 @@ public:
         cout << "Bank Name: " << this->bankName << endl;
         cout << "Balance: " << this->balance << endl;
     }
+    // void displayFile(ofstream &outfile)
+    // {
+    //     outfile << this->accountID << endl;
+    //     outfile << this->accountHolderName << endl;
+    //     outfile << this->bankName << endl;
+    //     outfile << this->balance << endl;
+    // }
 };

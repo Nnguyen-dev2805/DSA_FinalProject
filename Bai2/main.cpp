@@ -25,8 +25,111 @@ void displayMenu()
 }
 
 
-void readfromFile(BST<BankAccount> &tree)
-    {
+// void readfromFile(BST<BankAccount> &tree)
+//     {
+//         ifstream infile("account.txt");
+//         if (!infile)
+//         {
+//             cout << "Couldn't open file for reading!" << endl;
+//             return;
+//         }
+
+//         string line;
+        
+//         while (getline(infile, line))
+//         {
+//             stringstream ss(line);
+//             vector<string> words;
+//             string word;
+//             while (ss >> word)
+//             {
+//                 words.push_back(word);
+//             }
+//             if (words.size() <= 3) continue;
+//             int id = stoi(words[0]);
+//             double balance = stod(words[words.size() - 1]);
+//             string bank_name = words[words.size() - 2];
+//             string name = "";
+//             for (int i = 1; i < words.size() - 2; i++)
+//             {
+//                 name += (words[i] + " ");
+//             }
+//             if(!name.empty())
+//             {
+//                 name.pop_back();
+//             }
+            
+//             BankAccount account(id,name,bank_name,balance);
+//             tree.insert(account);
+//         }
+//         infile.close();
+// }
+
+// void addtoFile(const BankAccount &account)
+// {
+//     ofstream outfile ("account.txt", ios::app);
+//     if(!outfile)
+//     {
+//             cout << "Couldn't open file for add!" << endl;
+//             return;
+//     }
+//     string line = "";
+//     line += to_string(account.accountID) + " ";
+//     line += account.accountHolderName + " " ;
+//     line += account.bankName + " ";
+//     line += to_string(account.balance);
+//     outfile << endl;
+//     outfile << line;
+//     outfile.close();
+// }
+
+// void deletefromFile(int id)
+// {
+//     ifstream infile ("account.txt");
+//     if(!infile)
+//     {
+//             cout << "Couldn't open file for add!" << endl;
+//             return;
+//     }
+//     string line = "";
+//     vector<string> lines;
+//     while(getline(infile,line))
+//     {
+//         stringstream ss(line);
+//         string word;
+//         ss >> word;
+//         if (stoi(word) != id)
+//         {
+//             lines.push_back(line);
+//         }
+//     }
+
+//     infile.close();
+
+//     ofstream outfile("account.txt");
+//     if(!outfile)
+//     {
+//         cout << "Couldn't open file" << endl;
+//         return;       
+//     }
+
+//     for (string temp : lines)
+//     {
+//         outfile << temp <<endl;
+//     }
+//     outfile.close();
+
+// }
+
+
+
+
+
+
+//hàm mới đọc 1 tk 4 dòng 
+
+void readfromFile( BST<BankAccount> &tree)
+{
         ifstream infile("account.txt");
         if (!infile)
         {
@@ -34,32 +137,16 @@ void readfromFile(BST<BankAccount> &tree)
             return;
         }
 
-        string line;
-        
-        while (getline(infile, line))
+        BankAccount account;
+        string word;
+        while (infile >> word)
         {
-            stringstream ss(line);
-            vector<string> words;
-            string word;
-            while (ss >> word)
-            {
-                words.push_back(word);
-            }
-            if (words.size() <= 3) continue;
-            int id = stoi(words[0]);
-            double balance = stod(words[words.size() - 1]);
-            string bank_name = words[words.size() - 2];
-            string name = "";
-            for (int i = 1; i < words.size() - 2; i++)
-            {
-                name += (words[i] + " ");
-            }
-            if(!name.empty())
-            {
-                name.pop_back();
-            }
-            
-            BankAccount account(id,name,bank_name,balance);
+        	account.accountID = stoi(word);
+            infile.ignore();
+            getline(infile,account.accountHolderName);
+            getline(infile,account.bankName);
+            infile >> word;
+            account.balance = stod(word);
             tree.insert(account);
         }
         infile.close();
@@ -70,16 +157,13 @@ void addtoFile(const BankAccount &account)
     ofstream outfile ("account.txt", ios::app);
     if(!outfile)
     {
-            cout << "Couldn't open file for add!" << endl;
-            return;
+        cout << "Couldn't open file for add!" << endl;
+        return;
     }
-    string line = "";
-    line += to_string(account.accountID) + " ";
-    line += account.accountHolderName + " " ;
-    line += account.bankName + " ";
-    line += to_string(account.balance);
-    outfile << endl;
-    outfile << line;
+    outfile << account.accountID <<endl;
+    outfile << account.accountHolderName << endl;
+    outfile << account.bankName <<endl;
+    outfile << account.balance <<endl;
     outfile.close();
 }
 
@@ -91,19 +175,24 @@ void deletefromFile(int id)
             cout << "Couldn't open file for add!" << endl;
             return;
     }
-    string line = "";
     vector<string> lines;
-    while(getline(infile,line))
+    int idd;
+    while(infile >> idd)
     {
-        stringstream ss(line);
-        string word;
-        ss >> word;
-        if (stoi(word) != id)
+        if(idd != id)
         {
-            lines.push_back(line);
+            lines.push_back(to_string(idd));
+            string name,bank_name;
+            infile.ignore();
+            getline(infile, name);
+            getline(infile, bank_name);
+            lines.push_back(name);
+            lines.push_back(bank_name);
+            double balance; 
+            infile >> balance;
+            lines.push_back(to_string(balance));
         }
     }
-
     infile.close();
 
     ofstream outfile("account.txt");
@@ -120,6 +209,9 @@ void deletefromFile(int id)
     outfile.close();
 
 }
+
+
+
 
 int main()
 {

@@ -21,15 +21,26 @@ private:
             this->pLeft = nullptr;
             this->pRight = nullptr;
         }
-        // destructor
-        ~Node()
-        {
-            delete pLeft;
-            delete pRight;
-        }
     };
 
     Node *root;
+
+    // helper function to destructor
+    void deleteTree(Node *node)
+    {
+        if (node == nullptr)
+            return;
+
+        // Xóa đệ quy con trái
+        deleteTree(node->pLeft);
+
+        // Xóa đệ quy con phải
+        deleteTree(node->pRight);
+
+        // Xóa node hiện tại
+        delete node;
+    }
+
     // helper function to insert
     void addNode(Node *&node, Node *newNode)
     {
@@ -41,11 +52,14 @@ private:
         {
             addNode(node->pRight, newNode);
         }
-        else if(node->data > newNode->data)
+        else if (node->data > newNode->data)
         {
             addNode(node->pLeft, newNode);
         }
-        else return;
+        else
+        {
+            return;
+        }
     }
 
     // helper function to delete
@@ -120,6 +134,7 @@ private:
         if (node == nullptr)
             return;
         printInOrder(node->pLeft);
+        // cout << node->data << endl;
         node->data.display();
         printInOrder(node->pRight);
     }
@@ -132,13 +147,18 @@ private:
         outfile << node->data.accountHolderName << endl;
         outfile << node->data.bankName << endl;
         outfile << node->data.balance << endl;
-        FileInOrder(node->pRight, outfile );
+        FileInOrder(node->pRight, outfile);
     }
 
 public:
     BST()
     {
         this->root = nullptr;
+    }
+
+    ~BST()
+    {
+        deleteTree(root);
     }
 
     bool isEmptyTree()
@@ -160,6 +180,7 @@ public:
         if (root == nullptr)
         {
             root = newNode;
+            cout << "Them nut thanh cong!" << endl;
             return;
         }
         Node *cur = root;
@@ -167,6 +188,13 @@ public:
         while (cur != nullptr)
         {
             parent = cur;
+            if (value == cur->data)
+            {
+
+                cout << "Nut da ton tai trong cay!" << endl;
+                return;
+            }
+
             if (value > cur->data)
             {
                 cur = cur->pRight;
@@ -179,10 +207,12 @@ public:
         if (value > parent->data)
         {
             parent->pRight = newNode;
+            cout << "Them nut thanh cong!" << endl;
         }
         else
         {
             parent->pLeft = newNode;
+            cout << "Them nut thanh cong!" << endl;
         }
     }
 
@@ -195,6 +225,7 @@ public:
         }
         else
         {
+            // cout << "Not found";
             cout << "No found " << value.getAccountID() << " in Tree" << endl;
         }
     }
@@ -232,26 +263,37 @@ public:
             }
             // cập nhật giá trị của nút cha
             cur->data = minNode->data;
-
+            if (minNodeParent == cur)
+            {
+                minNodeParent->pRight = minNode->pRight;
+            }
+            else
+            {
+                minNodeParent->pLeft = minNode->pRight;
+            }
             // cập nhật nút cur và parent để xóa nút minNode
-            cur = minNode;
-            parent = minNodeParent;
-        }
-        // Trường hợp có 0 con và 1 con
-        Node *child = (cur->pLeft != nullptr) ? cur->pLeft : cur->pRight;
-        if (cur == root)
-        {
-            root = child;
-        }
-        else if (cur == parent->pLeft)
-        {
-            parent->pLeft = child;
+            // cur = minNode;
+            delete minNode;
+            // parent = minNodeParent;
         }
         else
         {
-            parent->pRight = child;
+            // Trường hợp có 0 con và 1 con
+            Node *child = (cur->pLeft != nullptr) ? cur->pLeft : cur->pRight;
+            if (cur == root)
+            {
+                root = child;
+            }
+            else if (cur == parent->pLeft)
+            {
+                parent->pLeft = child;
+            }
+            else
+            {
+                parent->pRight = child;
+            }
+            delete cur;
         }
-        delete cur;
         return true;
     }
 
@@ -274,7 +316,6 @@ public:
         }
         printInOrder(root);
     }
-
     // ghi ra file
     void printFile(ofstream &outfile)
     {

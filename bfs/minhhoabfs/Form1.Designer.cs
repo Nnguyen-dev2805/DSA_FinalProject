@@ -240,12 +240,13 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(270, 3);
+            this.label9.Location = new System.Drawing.Point(191, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(319, 61);
+            this.label9.Size = new System.Drawing.Size(506, 61);
             this.label9.TabIndex = 17;
-            this.label9.Text = "Minh họa BFS";
+            this.label9.Text = "Minh họa BFS với đồ thị vô hướng";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // cleardata
             // 
@@ -306,7 +307,7 @@
             // 
             this.label8.BackColor = System.Drawing.Color.LightBlue;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(336, 21);
+            this.label8.Location = new System.Drawing.Point(308, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(248, 48);
             this.label8.TabIndex = 9;

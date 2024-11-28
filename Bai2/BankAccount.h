@@ -32,6 +32,19 @@ public:
         this->balance = balance;
     }
 
+    BankAccount &operator=(const BankAccount &other)
+    {
+        if (this == &other)
+            return *this; 
+
+        this->accountID = other.accountID;
+        this->accountHolderName = other.accountHolderName;
+        this->bankName = other.bankName;
+        this->balance = other.balance;
+
+        return *this; 
+    }
+
     bool operator<(const BankAccount &other) const
     {
         return this->accountID < other.accountID;
@@ -95,13 +108,6 @@ public:
         cout << "ID: " << this->accountID << endl;
         cout << "Holder Name: " << this->accountHolderName << endl;
         cout << "Bank Name: " << this->bankName << endl;
-        cout << "Balance: " << this->balance << endl;
+        cout << "Balance: " << this->balance << endl<<endl;
     }
-    // void displayFile(ofstream &outfile)
-    // {
-    //     outfile << this->accountID << endl;
-    //     outfile << this->accountHolderName << endl;
-    //     outfile << this->bankName << endl;
-    //     outfile << this->balance << endl;
-    // }
 };

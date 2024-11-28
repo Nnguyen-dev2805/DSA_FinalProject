@@ -63,6 +63,7 @@ namespace BFS_Graph_App
 
                 // Hiển thị cạnh trong ListBox
                 lstEdges.Items.Add($"Cạnh: {u} - {v}");
+                lstEdges.TopIndex = lstEdges.Items.Count - 1;
             } 
             txtEdgeU.Clear();
             txtEdgeV.Clear();
@@ -167,6 +168,7 @@ namespace BFS_Graph_App
                 await Task.Delay(500);
             }
             MessageBox.Show("Đã lấy hết phần tử từ hàng đợi!", "Thông báo");
+            txtoutput.Clear();
         }
 
         private void lstQueue_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,6 +178,10 @@ namespace BFS_Graph_App
 
         private void BFS(int start)
         {
+            foreach (var key in graph.Keys.ToList())
+            {
+                graph[key] = graph[key].OrderBy(x => x).ToList();
+            }
             Queue<int> queue = new Queue<int>();
             HashSet<int> visited = new HashSet<int>();
 
@@ -187,7 +193,8 @@ namespace BFS_Graph_App
             {
                 int current = queue.Dequeue();
                 rtbResult.AppendText("        " + current + " \n" + "        ↓ " + "\n");
-
+              //  rtbResult.SelectionStart = rtbResult.Text.Length;
+              // rtbResult.ScrollToCaret();
                 foreach (int neighbor in graph[current])
                 {
                     if (!visited.Contains(neighbor))
@@ -215,6 +222,7 @@ namespace BFS_Graph_App
                 myqueue.Enqueue(int.Parse(txtinput.Text));
                 txtinput.Clear();  
                 updateQueuedisplay();
+                lstQueue.TopIndex = lstQueue.Items.Count - 1;
             }
             txtoutput.Clear();
             // đưa con trỏ tự động quay về ô input
@@ -268,6 +276,11 @@ namespace BFS_Graph_App
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

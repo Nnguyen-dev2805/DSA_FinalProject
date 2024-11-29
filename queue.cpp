@@ -2,7 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <set>
-#include<algorithm>
+#include <algorithm>
 using namespace std;
 template <typename T>
 class Queue
@@ -51,7 +51,7 @@ public:
 			back = nullptr;
 		return value;
 	}
-	//Get value at top
+	// Get value at top
 	T peek()
 	{
 		if (isEmpty())
@@ -100,8 +100,8 @@ unordered_map<T, vector<T>> readGraph(T m)
 		graph[u].push_back(v);
 		graph[v].push_back(u);
 	}
-	
-	for(auto &pair : graph)
+
+	for (auto &pair : graph)
 	{
 		sort(pair.second.begin(), pair.second.end());
 	}
@@ -112,7 +112,7 @@ int main()
 	int ok = 1;
 	do
 	{
-		int n, m;
+		int m;
 		cout << "Enter the number of edges : ";
 		cin >> m;
 		if (m <= 0)

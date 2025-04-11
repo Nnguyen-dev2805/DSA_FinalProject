@@ -37,7 +37,7 @@ Dự án này là một tập hợp các ứng dụng minh họa và triển kha
 ## Hướng Dẫn Cài Đặt
 1. Clone repository:
    ```bash
-   git clone <git@github.com:Nnguyen-dev2805/DSA_FinalProject.git>
+   git clone git@github.com:Nnguyen-dev2805/DSA_FinalProject.git
    ```
 2. Mở dự án trong IDE hỗ trợ C++, C#, Java (Visual Studio, Code::Blocks, v.v.).
 3. Biên dịch và chạy các file chính như `main.cpp` hoặc các dự án C#.
